@@ -25,7 +25,9 @@ public class FlightSearchTest extends BaseTest {
 	@Parameters({"grid","browser", "url"})
 	@BeforeClass
 	public void init(String grid, String browser, String url) {
-		System.out.println("adding for github");
+		System.out.println("adding for github 1");
+		System.out.println("adding for github 2");
+
 		launchBrowser(grid, browser, url);
 	}
 	

@@ -1,33 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Suite]" parallel="tests">
+  <parameter name="grid" value="true"/>
   <listeners>
     <listener class-name="extentlisteners.ExtentListeners"/>
   </listeners>
-  <test thread-count="5" verbose="0" name="Chrome Test(failed)" parallel="tests">
-    <parameter name="browser" value="chrome"/>
-    <parameter name="url" value="https://www.expedia.com/"/>
-    <classes>
-      <class name="tests.HotelSearchTest">
-        <methods>
-          <include name="searchHotel" invocation-numbers="0"/>
-          <include name="tearDown"/>
-          <include name="init"/>
-        </methods>
-      </class> <!-- tests.HotelSearchTest -->
-    </classes>
-  </test> <!-- Chrome Test(failed) -->
   <test thread-count="5" verbose="0" name="Firefox Test(failed)" parallel="tests">
     <parameter name="browser" value="firefox"/>
     <parameter name="url" value="https://www.expedia.com/"/>
     <classes>
       <class name="tests.HotelSearchTest">
         <methods>
-          <include name="searchHotel" invocation-numbers="0"/>
+          <include name="searchHotel"/>
           <include name="tearDown"/>
           <include name="init"/>
         </methods>
       </class> <!-- tests.HotelSearchTest -->
+      <class name="tests.FlightSearchTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="init"/>
+          <include name="searchFlight"/>
+        </methods>
+      </class> <!-- tests.FlightSearchTest -->
     </classes>
   </test> <!-- Firefox Test(failed) -->
+  <test thread-count="5" verbose="0" name="Chrome Test(failed)" parallel="tests">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="url" value="https://www.expedia.com/"/>
+    <classes>
+      <class name="tests.HotelSearchTest">
+        <methods>
+          <include name="searchHotel"/>
+          <include name="tearDown"/>
+          <include name="init"/>
+        </methods>
+      </class> <!-- tests.HotelSearchTest -->
+      <class name="tests.FlightSearchTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="init"/>
+          <include name="searchFlight"/>
+        </methods>
+      </class> <!-- tests.FlightSearchTest -->
+    </classes>
+  </test> <!-- Chrome Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
